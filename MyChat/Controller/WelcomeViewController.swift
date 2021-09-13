@@ -18,9 +18,7 @@ class WelcomeViewController: UIViewController {
         configView.logInButton.addTarget(self, action: #selector(logInButtonPressed),
                                          for: .touchUpInside)
     }
-    
-    
-    
+   
     @objc func registerButtonPressed(){
         let regiserVC = RegisterViewController()
         present(regiserVC, animated: true, completion: nil)

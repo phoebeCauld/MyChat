@@ -133,5 +133,5 @@ class ConfigRegisterView: UIView {
 }
 
 enum Colors {
-    static let placeholderColor = #colorLiteral(red: 0.9059454799, green: 0.9005602002, blue: 0.9100851417, alpha: 1)
+    static let placeholderColor = #colorLiteral(red: 0.8759351373, green: 0.8707285523, blue: 0.8799377084, alpha: 1)
 }

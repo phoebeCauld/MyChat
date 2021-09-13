@@ -15,6 +15,12 @@ class LogInViewController: UIViewController {
         configView.setView(view)
         configView.emailTextField.delegate = self
         configView.passwordTextField.delegate = self
+        configView.logInButton.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
+    }
+    
+    @objc func loginPressed(){
+        let chatVC = ChatViewController()
+        present(chatVC, animated: true, completion: nil)
     }
 }
 
