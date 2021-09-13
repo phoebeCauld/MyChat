@@ -18,6 +18,8 @@
 		2D876C7526EF9EEC000E9F4F /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D876C7426EF9EEC000E9F4F /* LogInViewController.swift */; };
 		2D876C7726EF9F06000E9F4F /* ConfigLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D876C7626EF9F06000E9F4F /* ConfigLogInView.swift */; };
 		2D876C7926EF9F13000E9F4F /* ConfigRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D876C7826EF9F13000E9F4F /* ConfigRegisterView.swift */; };
+		2D876C7B26EFB3B2000E9F4F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D876C7A26EFB3B2000E9F4F /* ChatViewController.swift */; };
+		2D876C7D26EFB3C6000E9F4F /* ConfigChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D876C7C26EFB3C6000E9F4F /* ConfigChatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		2D876C7426EF9EEC000E9F4F /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		2D876C7626EF9F06000E9F4F /* ConfigLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigLogInView.swift; sourceTree = "<group>"; };
 		2D876C7826EF9F13000E9F4F /* ConfigRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRegisterView.swift; sourceTree = "<group>"; };
+		2D876C7A26EFB3B2000E9F4F /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		2D876C7C26EFB3C6000E9F4F /* ConfigChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigChatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 				2D876C5E26EF9C2D000E9F4F /* WelcomeViewController.swift */,
 				2D876C7226EF9ED3000E9F4F /* RegisterViewController.swift */,
 				2D876C7426EF9EEC000E9F4F /* LogInViewController.swift */,
+				2D876C7A26EFB3B2000E9F4F /* ChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -94,6 +99,7 @@
 				2D876C7026EF9C6B000E9F4F /* ConfigWelcomeView.swift */,
 				2D876C7826EF9F13000E9F4F /* ConfigRegisterView.swift */,
 				2D876C7626EF9F06000E9F4F /* ConfigLogInView.swift */,
+				2D876C7C26EFB3C6000E9F4F /* ConfigChatView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,9 +178,11 @@
 				2D876C7926EF9F13000E9F4F /* ConfigRegisterView.swift in Sources */,
 				2D876C7326EF9ED3000E9F4F /* RegisterViewController.swift in Sources */,
 				2D876C7526EF9EEC000E9F4F /* LogInViewController.swift in Sources */,
+				2D876C7D26EFB3C6000E9F4F /* ConfigChatView.swift in Sources */,
 				2D876C5B26EF9C2D000E9F4F /* AppDelegate.swift in Sources */,
 				2D876C7726EF9F06000E9F4F /* ConfigLogInView.swift in Sources */,
 				2D876C5D26EF9C2D000E9F4F /* SceneDelegate.swift in Sources */,
+				2D876C7B26EFB3B2000E9F4F /* ChatViewController.swift in Sources */,
 				2D876C7126EF9C6B000E9F4F /* ConfigWelcomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
