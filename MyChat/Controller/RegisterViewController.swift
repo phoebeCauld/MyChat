@@ -16,6 +16,7 @@ class RegisterViewController: UIViewController {
         configView.setView(view)
         configView.emailTextField.delegate = self
         configView.passwordTextField.delegate = self
+        self.navigationController?.navigationBar.backgroundColor = .none
     }
     
 }
