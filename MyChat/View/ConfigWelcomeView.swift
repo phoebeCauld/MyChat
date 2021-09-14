@@ -11,7 +11,7 @@ class ConfigWelcomeView: UIView {
 
     let titleLabel: UILabel = {
        let label = UILabel()
-        label.text = "⚡️FlashChat"
+        label.text = ""
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 50, weight: .black)
         label.textColor = UIColor(named: "BrandBlue")

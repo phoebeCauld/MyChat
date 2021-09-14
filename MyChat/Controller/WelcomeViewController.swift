@@ -17,16 +17,40 @@ class WelcomeViewController: UIViewController {
                                             for: .touchUpInside)
         configView.logInButton.addTarget(self, action: #selector(logInButtonPressed),
                                          for: .touchUpInside)
+        titleAnimation()
+        
     }
    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated);
+        self.navigationController?.navigationBar.backgroundColor = .none
+        super.viewWillDisappear(animated)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     @objc func registerButtonPressed(){
         let regiserVC = RegisterViewController()
-        present(regiserVC, animated: true, completion: nil)
+        navigationController?.pushViewController(regiserVC, animated: true)
     }
     
     @objc func logInButtonPressed(){
         let logInVC = LogInViewController()
-        present(logInVC, animated: true, completion: nil)
+        navigationController?.pushViewController(logInVC, animated: true)
+    }
+    
+    func titleAnimation(){
+        let titleText = "⚡️FlashChat"
+        var time = 0.0
+        for letter in titleText {
+            Timer.scheduledTimer(withTimeInterval: 0.05 * time, repeats: false) { timer in
+                self.configView.titleLabel.text?.append(letter)
+            }
+            time+=1
+        }
     }
 }
 
