@@ -24,8 +24,12 @@ class ConfigLogInView: UIView {
         let textField = UITextField()
         textField.font = UIFont.systemFont(ofSize: 25)
         textField.minimumFontSize = 17
+        //MARK: delete next string in the end
+        textField.text = "vikaperova291013@gmail.com"
+        textField.autocapitalizationType = .none
         textField.textAlignment = .center
         textField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: Colors.placeholderColor])
+        textField.returnKeyType = .next
         textField.textColor = UIColor(named: "BrandBlue")
         textField.adjustsFontSizeToFitWidth = true
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -49,9 +53,13 @@ class ConfigLogInView: UIView {
         let textField = UITextField()
         textField.font = UIFont.systemFont(ofSize: 25)
         textField.minimumFontSize = 17
+        //MARK: delete next string in the end
+        textField.text = "xoxogerardm2910"
+        textField.isSecureTextEntry = true
         textField.textAlignment = .center
         textField.textColor = UIColor(named: "BrandBlue")
         textField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: Colors.placeholderColor])
+        textField.returnKeyType = .go
         textField.adjustsFontSizeToFitWidth = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -66,6 +74,16 @@ class ConfigLogInView: UIView {
         return button
     }()
     
+    let errorDescriptionLabel: UILabel = {
+       let label = UILabel()
+        label.textColor = .red
+        label.numberOfLines = 0
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     func setView(_ view: UIView){
         view.backgroundColor = UIColor(named: "BrandBlue")
         addSubview(view)
@@ -74,7 +92,7 @@ class ConfigLogInView: UIView {
     
     override func addSubview(_ view: UIView) {
         [emailImage,emailTextField].forEach{emailView.addSubview($0)}
-        [passwordImage,passwordTextField,logInButton].forEach{passwordView.addSubview($0)}
+        [passwordImage,passwordTextField,logInButton, errorDescriptionLabel].forEach{passwordView.addSubview($0)}
         [emailView,passwordView].forEach{view.addSubview($0)}
     }
     
@@ -123,8 +141,15 @@ class ConfigLogInView: UIView {
                                                     constant: 50),
             passwordTextField.bottomAnchor.constraint(equalTo: passwordView.bottomAnchor,
                                             constant: -82),
-            logInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,
-                                                constant: 30),
+            errorDescriptionLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,
+                                                       constant: 15),
+            errorDescriptionLabel.trailingAnchor.constraint(equalTo: passwordView.trailingAnchor,
+                                                            constant: -30),
+            errorDescriptionLabel.leadingAnchor.constraint(equalTo: passwordView.leadingAnchor,
+                                                           constant: 30),
+            errorDescriptionLabel.heightAnchor.constraint(equalToConstant: 30),
+            logInButton.topAnchor.constraint(equalTo: errorDescriptionLabel.bottomAnchor,
+                                                constant: 15),
             logInButton.leadingAnchor.constraint(equalTo: passwordView.leadingAnchor),
             logInButton.trailingAnchor.constraint(equalTo: passwordView.trailingAnchor),
             logInButton.bottomAnchor.constraint(equalTo: passwordView.bottomAnchor)

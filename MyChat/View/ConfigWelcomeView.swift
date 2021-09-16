@@ -6,11 +6,11 @@
 //
 
 import UIKit
-
+import CLTypingLabel
 class ConfigWelcomeView: UIView {
 
-    let titleLabel: UILabel = {
-       let label = UILabel()
+    let titleLabel: CLTypingLabel = {
+       let label = CLTypingLabel()
         label.text = ""
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 50, weight: .black)

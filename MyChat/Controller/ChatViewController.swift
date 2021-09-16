@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Firebase
 class ChatViewController: UIViewController {
     
     let configView = ConfigChatView()
@@ -14,7 +14,20 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configView.setView(view)
+        navigationSetup()
     }
     
+    func navigationSetup() {
+       navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOutPressed))
+    }
+    @objc func logOutPressed(){
+        let firebaseAuth = Auth.auth()
+    do {
+      try firebaseAuth.signOut()
+        navigationController?.popToRootViewController(animated: true)
+    } catch let signOutError as NSError {
+      print("Error signing out: %@", signOutError)
+    }
+    }
 
 }
