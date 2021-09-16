@@ -54,6 +54,7 @@ class ConfigChatView: UIView {
         [messageField, sendButton].forEach{messageView.addSubview($0)}
     }
     
+
     func setConstraints(_ view: UIView){
         NSLayoutConstraint.activate([
             chatView.centerXAnchor.constraint(equalTo: view.centerXAnchor),

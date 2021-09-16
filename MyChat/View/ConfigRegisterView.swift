@@ -24,9 +24,11 @@ class ConfigRegisterView: UIView {
         let textField = UITextField()
         textField.font = UIFont.systemFont(ofSize: 25)
         textField.minimumFontSize = 17
+        textField.autocapitalizationType = .none
         textField.textAlignment = .center
         textField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: Colors.placeholderColor])
         textField.textColor = UIColor(named: "BrandBlue")
+        textField.returnKeyType = .next
         textField.adjustsFontSizeToFitWidth = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -49,9 +51,11 @@ class ConfigRegisterView: UIView {
         let textField = UITextField()
         textField.font = UIFont.systemFont(ofSize: 25)
         textField.minimumFontSize = 17
+        textField.isSecureTextEntry = true
         textField.textAlignment = .center
         textField.textColor = UIColor(named: "BrandBlue")
         textField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: Colors.placeholderColor])
+        textField.returnKeyType = .join
         textField.adjustsFontSizeToFitWidth = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -66,6 +70,17 @@ class ConfigRegisterView: UIView {
         return button
     }()
     
+    let errorDescriptionLabel: UILabel = {
+       let label = UILabel()
+        label.textColor = .red
+        label.numberOfLines = 0
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
     func setView(_ view: UIView){
         view.backgroundColor = UIColor(named: "BrandLightBlue")
         addSubview(view)
@@ -74,7 +89,7 @@ class ConfigRegisterView: UIView {
     
     override func addSubview(_ view: UIView) {
         [emailImage,emailTextField].forEach{emailView.addSubview($0)}
-        [passwordImage,passwordTextField,registerButton].forEach{passwordView.addSubview($0)}
+        [passwordImage,passwordTextField,registerButton, errorDescriptionLabel].forEach{passwordView.addSubview($0)}
         [emailView,passwordView].forEach{view.addSubview($0)}
     }
     
@@ -91,7 +106,7 @@ class ConfigRegisterView: UIView {
                                               constant: -100),
             passwordView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             passwordView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            passwordView.heightAnchor.constraint(equalToConstant: 180),
+            passwordView.heightAnchor.constraint(equalToConstant: 200),
             
             emailImage.topAnchor.constraint(equalTo: emailView.topAnchor,
                                             constant: 20),
@@ -123,8 +138,15 @@ class ConfigRegisterView: UIView {
                                                     constant: 50),
             passwordTextField.bottomAnchor.constraint(equalTo: passwordView.bottomAnchor,
                                             constant: -82),
-            registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,
-                                                constant: 30),
+            errorDescriptionLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,
+                                                       constant: 15),
+            errorDescriptionLabel.trailingAnchor.constraint(equalTo: passwordView.trailingAnchor,
+                                                            constant: -30),
+            errorDescriptionLabel.leadingAnchor.constraint(equalTo: passwordView.leadingAnchor,
+                                                           constant: 30),
+            errorDescriptionLabel.heightAnchor.constraint(equalToConstant: 30),
+            registerButton.topAnchor.constraint(equalTo: errorDescriptionLabel.bottomAnchor,
+                                                constant: 15),
             registerButton.leadingAnchor.constraint(equalTo: passwordView.leadingAnchor),
             registerButton.trailingAnchor.constraint(equalTo: passwordView.trailingAnchor),
             registerButton.bottomAnchor.constraint(equalTo: passwordView.bottomAnchor)

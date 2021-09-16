@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LogInViewController: UIViewController {
     
@@ -19,8 +20,18 @@ class LogInViewController: UIViewController {
     }
     
     @objc func loginPressed(){
-        let chatVC = ChatViewController()
-        present(chatVC, animated: true, completion: nil)
+        if let email = configView.emailTextField.text, let password = configView.passwordTextField.text {
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+                guard self != nil else { return }
+                if let error = error{
+                    self?.configView.errorDescriptionLabel.text = error.localizedDescription
+                } else {
+                    let chatVC = ChatViewController()
+                    self?.navigationController?.pushViewController(chatVC, animated: true)
+                }
+                
+            }
+        }
     }
 }
 

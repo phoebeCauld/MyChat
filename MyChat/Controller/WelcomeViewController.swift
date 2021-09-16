@@ -17,7 +17,7 @@ class WelcomeViewController: UIViewController {
                                             for: .touchUpInside)
         configView.logInButton.addTarget(self, action: #selector(logInButtonPressed),
                                          for: .touchUpInside)
-        titleAnimation()
+        configView.titleLabel.text = "⚡️FlashChat"
         
     }
    
@@ -41,16 +41,16 @@ class WelcomeViewController: UIViewController {
         let logInVC = LogInViewController()
         navigationController?.pushViewController(logInVC, animated: true)
     }
-    
-    func titleAnimation(){
-        let titleText = "⚡️FlashChat"
-        var time = 0.0
-        for letter in titleText {
-            Timer.scheduledTimer(withTimeInterval: 0.05 * time, repeats: false) { timer in
-                self.configView.titleLabel.text?.append(letter)
-            }
-            time+=1
-        }
-    }
+//
+//    func titleAnimation(){
+//        let titleText = "⚡️FlashChat"
+//        var time = 0.0
+//        for letter in titleText {
+//            Timer.scheduledTimer(withTimeInterval: 0.05 * time, repeats: false) { timer in
+//                self.configView.titleLabel.text?.append(letter)
+//            }
+//            time+=1
+//        }
+//    }
 }
 
